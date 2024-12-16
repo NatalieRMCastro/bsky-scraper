@@ -4,12 +4,13 @@
 import pandas as pd
 from time import gmtime, strftime
 import json
+import poetry
 
 
 
 ## Defining the Main function
 def main():
-  scrape.py
+  poetry run python scrape.py
 
 ## Checking that Main Exists
 if __name__=="__main__":
