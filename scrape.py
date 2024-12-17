@@ -12,9 +12,6 @@ import os
 bsky_login = os.getenv("BSKY_LOGIN")
 bsky_password = os.getenc("BSKY_PASSWORD")
 
-client = Client()
-client.login(bsky_login,bsky_password)
-
 def worker_process(queue, output_file, verbose, post_count, lock, stop_event):
     resolver = IdResolver(cache=DidInMemoryCache())
     while not stop_event.is_set():
@@ -28,7 +25,7 @@ def worker_process(queue, output_file, verbose, post_count, lock, stop_event):
 
 def client_process(queue, stop_event):
     client = FirehoseSubscribeReposClient()
-    
+    client.login(bsky_login,bsky_password)
     def message_handler(message):
         if stop_event.is_set():
             client.stop()
