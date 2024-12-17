@@ -120,7 +120,7 @@ class FirehoseScraper:
         self.lock = multiprocessing.Lock()  # For thread-safe file writing
         self.client_proc = None  # Renamed to avoid conflict
 
-    def start_collection(self, duration_seconds=None, post_limit=None):
+    def start_collection(self, duration_seconds=5, post_limit=None): ## change back to none here -- or maybe change to the number of seconds per day?
         """Start collecting posts from the firehose"""
         print(f"Starting collection{f' for {post_limit} posts' if post_limit else ''}...")
         self.start_time = time.time()
