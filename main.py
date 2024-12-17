@@ -26,7 +26,7 @@ def worker_process(queue, output_file, verbose, post_count, lock, stop_event):
 
 def client_process(queue, stop_event):
     client = FirehoseSubscribeReposClient()
-    client.login(bsky_login,bsky_password)
+    
     def message_handler(message):
         if stop_event.is_set():
             client.stop()
