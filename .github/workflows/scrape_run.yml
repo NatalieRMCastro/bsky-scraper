@@ -26,8 +26,11 @@ jobs:
           pip install -r requirements.txt
            
       - name: Collecting posts from BlueSky 
+        env:
+          BSKY_LOGIN: ${{secrets.BSKY_LOGIN}}
+          BSKY_PASSWORD: ${{secrets.BSKY_PASSWORD}}
         run: |
-          python scrape.py
+          python scrape.py --BSKY_LOGIN $BSKY_LOGIN --BSKY_PASSWORD $BSKY_PASSWORD
           
       - name: commit
         run: |
