@@ -27,7 +27,7 @@ jobs:
            
       - name: Collecting posts from BlueSky 
         run: |
-          python main.py
+          python scrape.py
           
       - name: commit
         run: |
