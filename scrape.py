@@ -8,9 +8,9 @@ import sys
 import signal
 
 ## added here to be able to send headers with the client
-#import os 
-#bsky_login = os.getenv("BSKY_LOGIN")
-#bsky_password = os.getenv("BSKY_PASSWORD")
+import os 
+bsky_login = os.getenv("BSKY_LOGIN")
+bsky_password = os.getenv("BSKY_PASSWORD")
 #client.login(bsky_login,bsky_password)
 
 def worker_process(queue, output_file, verbose, post_count, lock, stop_event):
@@ -26,7 +26,7 @@ def worker_process(queue, output_file, verbose, post_count, lock, stop_event):
 
 def client_process(queue, stop_event):
     client = FirehoseSubscribeReposClient()
-    
+    client.login(bsky_login,bsky_password)
     def message_handler(message):
         if stop_event.is_set():
             client.stop()
