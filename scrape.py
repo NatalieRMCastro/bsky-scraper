@@ -10,7 +10,7 @@ import signal
 ## added here to be able to send headers with the client
 import os 
 bsky_login = os.getenv("BSKY_LOGIN")
-bsky_password = os.getenc("BSKY_PASSWORD")
+bsky_password = os.getenv("BSKY_PASSWORD")
 
 def worker_process(queue, output_file, verbose, post_count, lock, stop_event):
     resolver = IdResolver(cache=DidInMemoryCache())
