@@ -30,7 +30,7 @@ jobs:
           BSKY_LOGIN: ${{secrets.BSKY_LOGIN}}
           BSKY_PASSWORD: ${{secrets.BSKY_PASSWORD}}
         run: |
-          python scrape.py --BSKY_LOGIN $BSKY_LOGIN --BSKY_PASSWORD $BSKY_PASSWORD
+          python scrape.py
           
       - name: commit
         run: |
