@@ -7,6 +7,14 @@ import multiprocessing
 import sys
 import signal
 
+## added here to be able to send headers with the client
+import os 
+bsky_login = os.getenv("BSKY_LOGIN")
+bsky_password = os.getenc("BSKY_PASSWORD")
+
+client = Client()
+client.login(bsky_login,bsky_password)
+
 def worker_process(queue, output_file, verbose, post_count, lock, stop_event):
     resolver = IdResolver(cache=DidInMemoryCache())
     while not stop_event.is_set():
