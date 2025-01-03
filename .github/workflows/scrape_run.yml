@@ -39,8 +39,8 @@ jobs:
           git config user.name "NatalieRMCastro"
           git pull
           git checkout main
-          git add *
-          git commit -m "completed pull for `date +'%Y-%m-%d'`" || exit 0
+          git add -A
+          git commit -m "completed pull for `date +'%Y-%m-%d-%H-%M'`" || exit 0
           git push
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
